@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111318;
+  background: #f4f5f8;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculator {
+  width: min(100%, 430px);
+  padding: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d5d8df;
+  border-radius: 30px;
+  box-shadow: 0 22px 55px rgba(25, 31, 45, 0.16);
+}
+
+.display {
+  min-height: 175px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 8px;
+  color: #fff;
+  background: linear-gradient(145deg, #17191d, #25272c);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.expression {
+  min-height: 22px;
+  max-width: 100%;
+  color: #aeb2bb;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.result {
+  max-width: 100%;
+  font-size: clamp(42px, 12vw, 64px);
+  font-weight: 500;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 16px;
+}
+
+.key {
+  min-height: 76px;
+  border: 1px solid #c7cad1;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #f4f5f8, #e8eaf0);
+  color: #101216;
+  font: inherit;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 3px rgba(20, 25, 35, 0.08);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.key:hover {
+  filter: brightness(0.97);
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.operator {
+  color: #fff;
+  background: #f58a08;
+  border-color: #d97706;
+  font-size: 34px;
+}
+
+.clear {
+  color: #fff;
+  background: #e52f2b;
+  border-color: #c92420;
+  font-size: 28px;
+}
+
+.equals {
+  grid-column: 1 / -1;
+  min-height: 82px;
+  color: #fff;
+  background: #0864df;
+  border-color: #0754bd;
+  font-size: 38px;
+}
+
+@media (max-width: 380px) {
+  .calculator { padding: 9px; border-radius: 24px; }
+  .key { min-height: 65px; border-radius: 14px; }
+  .display { min-height: 150px; }
+}
