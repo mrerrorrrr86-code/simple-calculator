@@ -94,6 +94,7 @@ function backspace() {
   updateDisplay();
 }
 
+
 keys.addEventListener("click", (event) => {
   const button = event.target.closest("button");
   if (!button) return;
@@ -106,17 +107,18 @@ keys.addEventListener("click", (event) => {
     calculate();
   } else if (button.dataset.action === "clear") {
     clearCalculator();
-    else if (button.dataset.action === "backspace") {
-  backspace();
-}
+  } else if (button.dataset.action === "backspace") {
+    backspace();
   }
 });
+
 
 document.addEventListener("keydown", (event) => {
   if (/^[0-9.]$/.test(event.key)) inputNumber(event.key);
   else if (["+", "-", "*", "/"].includes(event.key)) chooseOperator(event.key);
   else if (event.key === "Enter" || event.key === "=") calculate();
   else if (event.key === "Escape" || event.key === "Delete") clearCalculator();
+    else if (event.key === "Backspace") backspace();
   else return;
   event.preventDefault();
 });
