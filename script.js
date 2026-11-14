@@ -81,6 +81,18 @@ function clearCalculator() {
   expression.textContent = "";
   updateDisplay();
 }
+function backspace() {
+  if (shouldReset || current === "Cannot divide by zero") {
+    clearCalculator();
+    return;
+  }
+
+  current = current.length > 1
+    ? current.slice(0, -1)
+    : "0";
+
+  updateDisplay();
+}
 
 keys.addEventListener("click", (event) => {
   const button = event.target.closest("button");
@@ -94,6 +106,9 @@ keys.addEventListener("click", (event) => {
     calculate();
   } else if (button.dataset.action === "clear") {
     clearCalculator();
+    else if (button.dataset.action === "backspace") {
+  backspace();
+}
   }
 });
 
