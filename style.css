@@ -76,6 +76,17 @@ body {
   box-shadow: 0 2px 3px rgba(20, 25, 35, 0.08);
   transition: transform 120ms ease, filter 120ms ease;
 }
+.key-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.backspace {
+  background: #555;
+  color: white;
+}
 
 .key:hover {
   filter: brightness(0.97);
